@@ -1,6 +1,7 @@
 package Exercise4_2;
 
 import javafx.application.Application;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -14,7 +15,7 @@ public class DBTPOASinJavaFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         //Tittle name
-        primaryStage.setTitle("Distance between 2 points");
+        primaryStage.setTitle("Calculator for distance on a Sphere");
 
         //Initializing gridpane
         GridPane grid = new GridPane();
@@ -27,9 +28,11 @@ public class DBTPOASinJavaFX extends Application {
         Button btn = new Button();
         grid.add(btn, 0, 4);
 
-        Label EnterX = new Label("x");
+        Label EnterX = new Label("Enter X");
+        GridPane.setHalignment(EnterX, HPos.CENTER);
         grid.add(EnterX, 1, 0);
-        Label EnterY = new Label("y");
+        Label EnterY = new Label("Enter Y");
+        GridPane.setHalignment(EnterY, HPos.CENTER);
         grid.add(EnterY, 2, 0);
         Label point1 = new Label("Enter point 1: ");
         grid.add(point1, 0, 1);
@@ -55,11 +58,15 @@ public class DBTPOASinJavaFX extends Application {
         btn.setText("Add");
         btn.setOnAction(e-> {
                 double x1 = Double.parseDouble(numberpointx1.getText());
+                x1 = Math.toRadians(x1);
                 double y1 = Double.parseDouble(numberpointy1.getText());
+                y1 = Math.toRadians(y1);
                 double x2 = Double.parseDouble(numberpointx2.getText());
+                x2 = Math.toRadians(x2);
                 double y2 = Double.parseDouble(numberpointy2.getText());
+                y2 = Math.toRadians(y2);
                 double radius = Double.parseDouble(numberRadius.getText());
-                result.setText("The result is: " + Distance2Points(x1, y1, x2, y2, radius));
+                result.setText("The result is: " + Distance2Points(x1, y1, x2, y2, radius) + " km");
             });
 
         primaryStage.setScene(new Scene(grid, 500, 275));
@@ -67,8 +74,8 @@ public class DBTPOASinJavaFX extends Application {
     }
 
     //Method that has the formula for the distance
-    public static double Distance2Points(double x1, double y1, double x2, double y2, double radius) {
-        double total = 0;
+    private static double Distance2Points(double x1, double y1, double x2, double y2, double radius) {
+        double total;
         total = radius * Math.acos((Math.sin(x1) * Math.sin(x2)) + (Math.cos(x1) * Math.cos(x2) * Math.cos(y1 - y2)));
         return total;
     }
@@ -88,7 +95,7 @@ public class DBTPOASinJavaFX extends Application {
             }
         }
         private boolean validate(String text) {
-            return text.matches("[0.0-9.0]*[-]?");
+            return text.matches("[0-9.0]*[-]?");
         }
     }
 
