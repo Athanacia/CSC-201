@@ -55,5 +55,6 @@ public class LinearEquation {
         } else {
             System.out.println("The equation has no solution");
         }
+        System.out.println("testing");
     }
 }
