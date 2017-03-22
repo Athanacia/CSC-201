@@ -37,6 +37,7 @@ public class Time {
         this.minute = minute;
         this.second = second;
     }
+
     public long getHour() {
         return hour;
     }
