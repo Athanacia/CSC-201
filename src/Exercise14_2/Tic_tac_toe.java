@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
 import java.util.concurrent.ThreadLocalRandom;
@@ -32,6 +33,9 @@ public class Tic_tac_toe extends Application {
         int count = 0;
         int column = 0;
         int row = 0;
+        grid.add(new Line(0, 0, 50, 50), 0, 0);
+        grid.add(new Line(50, 0, 0, 50), 0, 0);
+       /*
          do {
             int randomNum = ThreadLocalRandom.current().nextInt(1, 3 + 1);
             switch (randomNum) {
@@ -49,7 +53,7 @@ public class Tic_tac_toe extends Application {
             }
             count++;
         } while(count < 9);
-
+*/
         primaryStage.setScene(new Scene(grid, 250, 250));
         primaryStage.show();
 
