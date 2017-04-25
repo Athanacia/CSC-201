@@ -62,7 +62,6 @@ public class buttons_3 extends Application {
         grid.add(StopBtn, 2, 0);
 
         primaryStage.setScene(new Scene(grid, 200, 50));
-        primaryStage.setScene(new Scene(grid2, 500, 500));
         primaryStage.show();
 
     }
