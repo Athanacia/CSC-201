@@ -29,7 +29,7 @@ public class AnimationWithAudio extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("3 Buttons");
+        primaryStage.setTitle("Animation with music");
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
